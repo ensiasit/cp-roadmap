@@ -1,9 +1,9 @@
-export const parse = ({ entryLevel, levels, rows, cols }) => {
+const parse = ({ entryLevel, levels, rows, cols }) => {
   const nodeIndex = {};
   const nodes = [];
-  const gridNodes = Array.from({ length: rows }, () => (
+  const gridNodes = Array.from({ length: rows }, () =>
     Array.from({ length: cols })
-  ))
+  );
 
   Object.entries(levels).forEach(([id, level]) => {
     const node = { ...level, id };
@@ -24,19 +24,15 @@ export const buildGrid = (roadmap) => {
 
   return (
     <table>
-      <tbody>
-        {
-          Array.from({ length: roadmap.rows }, (_, row) => (
-            <tr>
-              {Array.from({ length: roadmap.cols }, (_, col) => (
-                <td>{
-                  gridNodes[row][col] && gridNodes[row][col].name
-                }</td>
-              ))}
-            </tr>
-          ))
-        }
+      <tbody data-testid="grid">
+        {Array.from({ length: roadmap.rows }, (_, row) => (
+          <tr>
+            {Array.from({ length: roadmap.cols }, (_, col) => (
+              <td>{gridNodes[row][col] && gridNodes[row][col].name}</td>
+            ))}
+          </tr>
+        ))}
       </tbody>
-    </table>)
-
-}
+    </table>
+  );
+};
