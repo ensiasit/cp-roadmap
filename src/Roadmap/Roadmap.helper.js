@@ -26,9 +26,11 @@ export const buildGrid = (roadmap) => {
     <table>
       <tbody data-testid="grid">
         {Array.from({ length: roadmap.rows }, (_, row) => (
-          <tr>
+          <tr key={`grid[${row}]`}>
             {Array.from({ length: roadmap.cols }, (_, col) => (
-              <td>{gridNodes[row][col] && gridNodes[row][col].name}</td>
+              <td key={`grid[${row}][${col}]`}>
+                {gridNodes[row][col] && gridNodes[row][col].name}
+              </td>
             ))}
           </tr>
         ))}
