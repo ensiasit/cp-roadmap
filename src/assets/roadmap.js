@@ -1,6 +1,6 @@
 export const roadmap = {
-  rows: 4,
-  cols: 4,
+  rows: 3,
+  cols: 3,
   entryLevel: "sami",
   levels: {
     sami: {

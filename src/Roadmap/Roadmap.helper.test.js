@@ -1,9 +1,9 @@
-import { render, screen } from "@testing-library/react";
-import { buildGrid } from "./Roadmap.helper";
+import {render, screen} from "@testing-library/react";
+import {buildGrid} from "./Roadmap.helper";
 
 const roadmap = {
-  rows: 4,
-  cols: 4,
+  rows: 3,
+  cols: 3,
   entryLevel: "sami",
   levels: {
     sami: {
@@ -49,24 +49,12 @@ describe("roadmap helpers", () => {
   it("should build grid given roadmap", () => {
     render(buildGrid(roadmap));
 
-    expect(screen.getByTestId("grid").childElementCount).toBe(roadmap.rows);
-    expect(screen.getByTestId("grid").children[0].children[0].textContent).toBe(
-      "Sami"
-    );
-    expect(screen.getByTestId("grid").children[0].children[1].textContent).toBe(
-      "Salah"
-    );
-    expect(screen.getByTestId("grid").children[0].children[2].textContent).toBe(
-      "Zin Eddine"
-    );
-    expect(screen.getByTestId("grid").children[1].children[1].textContent).toBe(
-      "Oussama"
-    );
-    expect(screen.getByTestId("grid").children[1].children[2].textContent).toBe(
-      "El Mehdi"
-    );
-    expect(screen.getByTestId("grid").children[2].children[1].textContent).toBe(
-      "Abderrahaman"
-    );
+    const grid = screen.getByTestId("grid");
+
+    expect(grid.childElementCount).toBe(roadmap.rows);
+
+    expect(grid.children[0].childElementCount).toBe(roadmap.cols);
+    expect(grid.children[1].childElementCount).toBe(roadmap.cols);
+    expect(grid.children[2].childElementCount).toBe(roadmap.cols);
   });
 });
