@@ -1,5 +1,5 @@
-import {render, screen} from "@testing-library/react";
-import {buildGrid} from "./Roadmap.helper";
+import { render, screen } from "@testing-library/react";
+import { buildGrid } from "./Roadmap.helper";
 
 const roadmap = {
   rows: 3,
@@ -10,36 +10,54 @@ const roadmap = {
       name: "Sami",
       row: 0,
       col: 0,
+      description: "Lorem Ipsum",
+      resources: ["https://www.google.com"],
+      problems: ["https://www.youtube.com"],
       next: ["salah"],
     },
     salah: {
       name: "Salah",
       row: 0,
       col: 1,
+      description: "Lorem Ipsum",
+      resources: ["https://www.google.com"],
+      problems: ["https://www.youtube.com"],
       next: ["zin_eddine", "oussama"],
     },
     zin_eddine: {
       name: "Zin Eddine",
       row: 0,
       col: 2,
+      description: "Lorem Ipsum",
+      resources: ["https://www.google.com"],
+      problems: ["https://www.youtube.com"],
       next: ["el_mehdi"],
     },
     oussama: {
       name: "Oussama",
       row: 1,
       col: 1,
+      description: "Lorem Ipsum",
+      resources: ["https://www.google.com"],
+      problems: ["https://www.youtube.com"],
       next: ["el_mehdi", "abderrahman"],
     },
     el_mehdi: {
       name: "El Mehdi",
       row: 1,
       col: 2,
+      description: "Lorem Ipsum",
+      resources: ["https://www.google.com"],
+      problems: ["https://www.youtube.com"],
       next: [],
     },
     abderrahman: {
       name: "Abderrahaman",
       row: 2,
       col: 1,
+      description: "Lorem Ipsum",
+      resources: ["https://www.google.com"],
+      problems: ["https://www.youtube.com"],
       next: [],
     },
   },

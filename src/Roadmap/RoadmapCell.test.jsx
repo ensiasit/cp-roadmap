@@ -1,12 +1,14 @@
 import RoadmapCell from "./RoadmapCell";
-import {render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 describe("Testing RoadmapCell", () => {
   it("Should render with light gray background color", () => {
     const props = {
       gridNode: {
         prev: [],
-        next: []
+        next: [],
+        resources: [],
+        problems: [],
       },
       row: 0,
       col: 0,
@@ -23,7 +25,9 @@ describe("Testing RoadmapCell", () => {
     const props = {
       gridNode: {
         prev: [],
-        next: []
+        next: [],
+        resources: [],
+        problems: [],
       },
       row: 0,
       col: 1,
@@ -35,4 +39,4 @@ describe("Testing RoadmapCell", () => {
 
     expect(cell.style.backgroundColor).toBe("white");
   });
-})
+});
