@@ -50,27 +50,25 @@ const RoadmapNode = ({ gridNode }) => {
       onHide={onHide}
       placement="right"
       render={(attrs) => (
-        <animated.div {...attrs} style={props}>
-          <div style={tooltipStyle}>
-            <h4>{gridNode.name}</h4>
-            <p>{gridNode.description}</p>
-            <h6>Resources</h6>
-            <ul>
-              {gridNode.resources.map((resource) => (
-                <li key={short.generate()}>
-                  <a href={resource}>{resource}</a>
-                </li>
-              ))}
-            </ul>
-            <h6>Problems</h6>
-            <ul>
-              {gridNode.problems.map((problem) => (
-                <li key={short.generate()}>
-                  <a href={problem}>{problem}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <animated.div style={{ ...props, ...tooltipStyle }} {...attrs}>
+          <h4>{gridNode.name}</h4>
+          <p>{gridNode.description}</p>
+          <h6>Resources</h6>
+          <ul>
+            {gridNode.resources.map((resource) => (
+              <li key={short.generate()}>
+                <a href={resource}>{resource}</a>
+              </li>
+            ))}
+          </ul>
+          <h6>Problems</h6>
+          <ul>
+            {gridNode.problems.map((problem) => (
+              <li key={short.generate()}>
+                <a href={problem}>{problem}</a>
+              </li>
+            ))}
+          </ul>
         </animated.div>
       )}
     >
