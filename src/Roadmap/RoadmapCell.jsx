@@ -1,12 +1,12 @@
-import short from "short-uuid";
-import RoadmapEdge from "./RoadmapEdge";
-import RoadmapNode from "./RoadmapNode";
+import short from 'short-uuid';
+import RoadmapEdge from './RoadmapEdge';
+import RoadmapNode from './RoadmapNode';
 
 const getParentStyle = (row, col) => ({
   width: 100,
   height: 100,
-  backgroundColor: ["#EFEFEF", "white"][(row + col) & 1],
-  position: "relative",
+  backgroundColor: ['#EFEFEF', 'white'][(row + col) % 2],
+  position: 'relative',
 });
 
 const RoadmapCell = ({ gridNode, row, col }) => {

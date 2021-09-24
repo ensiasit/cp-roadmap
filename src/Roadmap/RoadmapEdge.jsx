@@ -8,16 +8,14 @@ const getDegree = (node, adjacent) => {
 
 const getStyle = (node, adjacent) => ({
   width: 50,
-  borderTop: "4px solid #acacac",
-  borderBottom: "4px solid #acacac",
-  position: "absolute",
-  top: "calc(50% - 4px)",
-  transformOrigin: "center right",
-  transform: `rotate(${getDegree(node, adjacent)}deg)`
+  borderTop: '4px solid #acacac',
+  borderBottom: '4px solid #acacac',
+  position: 'absolute',
+  top: 'calc(50% - 4px)',
+  transformOrigin: 'center right',
+  transform: `rotate(${getDegree(node, adjacent)}deg)`,
 });
 
-const RoadmapEdge = ({node, adjacent}) => {
-  return <div data-testid="roadmap-edge" style={getStyle(node, adjacent)}/>;
-}
+const RoadmapEdge = ({ node, adjacent }) => <div data-testid="roadmap-edge" style={getStyle(node, adjacent)} />;
 
 export default RoadmapEdge;
