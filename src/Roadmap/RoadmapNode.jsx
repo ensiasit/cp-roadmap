@@ -1,51 +1,53 @@
-import circle from "../assets/img/circle.png";
-import Tippy from "@tippyjs/react/headless";
-import short from "short-uuid";
-import { useSpring, animated } from "react-spring";
+import Tippy from '@tippyjs/react/headless';
+import short from 'short-uuid';
+import { useSpring, animated } from 'react-spring';
+import circle from '../assets/img/circle.png';
+
 const style = {
-  position: "absolute",
-  top: "calc(50% - 25px)",
-  left: "calc(50% - 25px)",
+  position: 'absolute',
+  top: 'calc(50% - 25px)',
+  left: 'calc(50% - 25px)',
   zIndex: 99,
 };
 
 const tooltipStyle = {
-  backgroundColor: "black",
-  color: "white",
+  backgroundColor: 'black',
+  color: 'white',
   opacity: 0.8,
   zIndex: 100,
-  width: "300px",
-  padding: "1rem",
-  margin: "3px",
+  width: 300,
+  padding: '1rem',
+  margin: 3,
   borderRadius: 10,
 };
 
 const RoadmapNode = ({ gridNode }) => {
-  //* Animation config
   const config = { tension: 300, friction: 15 };
   const initialStyles = { opacity: 0 };
+
   const [props, setSpring] = useSpring(() => initialStyles);
 
-  function onMount() {
+  const onMount = () => {
     setSpring({
       opacity: 1,
       onRest: () => {},
       config,
     });
-  }
+  };
 
-  function onHide({ unmount }) {
+  const onHide = ({ unmount }) => {
     setSpring({
       ...initialStyles,
       onRest: unmount,
       config: { ...config, clamp: true },
     });
-  }
+  };
 
   return (
+    // eslint-disable-next-line react/react-in-jsx-scope
     <Tippy
-      interactive={true}
-      animation={true}
+      interactive
+      animation
       onMount={onMount}
       onHide={onHide}
       placement="right"

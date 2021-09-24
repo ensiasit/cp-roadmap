@@ -1,56 +1,56 @@
-import {render, screen} from "@testing-library/react";
-import RoadmapEdge from "./RoadmapEdge";
+import { render, screen } from '@testing-library/react';
+import RoadmapEdge from './RoadmapEdge';
 
-describe("Testing RoadmapEdge", () => {
-  it("Should render edge coming from left", () => {
+describe('Testing RoadmapEdge', () => {
+  it('Should render edge coming from left', () => {
     const props = {
-      node: {row: 0, col: 1},
-      adjacent: {row: 0, col: 0},
+      node: { row: 0, col: 1 },
+      adjacent: { row: 0, col: 0 },
     };
 
-    render(<RoadmapEdge {...props} />)
+    render(<RoadmapEdge {...props} />);
 
-    const edge = screen.getByTestId("roadmap-edge");
+    const edge = screen.getByTestId('roadmap-edge');
 
-    expect(edge.style.transform).toBe("rotate(0deg)");
+    expect(edge.style.transform).toBe('rotate(0deg)');
   });
 
-  it("Should render edge coming from top", () => {
+  it('Should render edge coming from top', () => {
     const props = {
-      node: {row: 1, col: 0},
-      adjacent: {row: 0, col: 1},
+      node: { row: 1, col: 0 },
+      adjacent: { row: 0, col: 1 },
     };
 
-    render(<RoadmapEdge {...props} />)
+    render(<RoadmapEdge {...props} />);
 
-    const edge = screen.getByTestId("roadmap-edge");
+    const edge = screen.getByTestId('roadmap-edge');
 
-    expect(edge.style.transform).toBe("rotate(90deg)");
+    expect(edge.style.transform).toBe('rotate(90deg)');
   });
 
-  it("Should render edge coming from right", () => {
+  it('Should render edge coming from right', () => {
     const props = {
-      node: {row: 0, col: 0},
-      adjacent: {row: 0, col: 1},
+      node: { row: 0, col: 0 },
+      adjacent: { row: 0, col: 1 },
     };
 
-    render(<RoadmapEdge {...props} />)
+    render(<RoadmapEdge {...props} />);
 
-    const edge = screen.getByTestId("roadmap-edge");
+    const edge = screen.getByTestId('roadmap-edge');
 
-    expect(edge.style.transform).toBe("rotate(180deg)");
+    expect(edge.style.transform).toBe('rotate(180deg)');
   });
 
-  it("Should render edge coming from bottom", () => {
+  it('Should render edge coming from bottom', () => {
     const props = {
-      node: {row: 0, col: 0},
-      adjacent: {row: 1, col: 1},
+      node: { row: 0, col: 0 },
+      adjacent: { row: 1, col: 1 },
     };
 
-    render(<RoadmapEdge {...props} />)
+    render(<RoadmapEdge {...props} />);
 
-    const edge = screen.getByTestId("roadmap-edge");
+    const edge = screen.getByTestId('roadmap-edge');
 
-    expect(edge.style.transform).toBe("rotate(270deg)");
+    expect(edge.style.transform).toBe('rotate(270deg)');
   });
 });
