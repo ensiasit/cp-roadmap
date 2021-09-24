@@ -1,7 +1,6 @@
 export const roadmap = {
   rows: 3,
   cols: 3,
-  entryLevel: 'sami',
   levels: {
     sami: {
       name: 'Sami',
@@ -11,6 +10,7 @@ export const roadmap = {
       row: 0,
       col: 0,
       next: ['salah'],
+      isEntryLevel: true,
     },
     salah: {
       name: 'Salah',
