@@ -1,13 +1,16 @@
 import Tippy from '@tippyjs/react/headless';
 import short from 'short-uuid';
 import { useSpring, animated } from 'react-spring';
-import circle from '../assets/img/circle.png';
+import entryLevelImg from '../assets/img/entry_level.svg';
+import internalLevelImg from '../assets/img/internal_level.svg';
+import finalLevelImg from '../assets/img/final_level.svg';
 
 const style = {
   position: 'absolute',
   top: 'calc(50% - 25px)',
   left: 'calc(50% - 25px)',
   zIndex: 99,
+  cursor: 'pointer',
 };
 
 const tooltipStyle = {
@@ -16,7 +19,7 @@ const tooltipStyle = {
   opacity: 0.8,
   zIndex: 100,
   width: 300,
-  padding: '1rem',
+  padding: 15,
   margin: 3,
   borderRadius: 10,
 };
@@ -43,8 +46,19 @@ const RoadmapNode = ({ gridNode }) => {
     });
   };
 
+  const getNodeImg = () => {
+    if (gridNode.isEntryLevel) {
+      return entryLevelImg;
+    }
+
+    if (gridNode.next.length === 0) {
+      return finalLevelImg;
+    }
+
+    return internalLevelImg;
+  };
+
   return (
-    // eslint-disable-next-line react/react-in-jsx-scope
     <Tippy
       interactive
       animation
@@ -74,7 +88,7 @@ const RoadmapNode = ({ gridNode }) => {
         </animated.div>
       )}
     >
-      <img src={circle} alt="level" style={style} />
+      <img data-testid="roadmap-node-img" src={getNodeImg()} alt="Level node" style={style} />
     </Tippy>
   );
 };
